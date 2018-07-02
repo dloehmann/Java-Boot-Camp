@@ -1,9 +1,9 @@
-package lesson7_9Equals;
+package practice4JavaFX;
 
 /**
  * @Author Dennis Löhmann (Holisticon AG) 18.06.18
  **/
-public abstract class Person {
+public class Person {
 
 
     public static final String TEACHER = "Teacher";
@@ -17,7 +17,6 @@ public abstract class Person {
         this.age = age;
     }
 
-    public abstract String getJob();
 
 
     public String getName() {
@@ -37,8 +36,7 @@ public abstract class Person {
     }
 
     public String toString() {
-        return "Hello, my name is " + name + " and I am " + age + " years old and I am a " + this.getJob() +
-                ".";
+        return "Hello, my name is " + name + " and I am " + age + " years old.";
     }
 
     public Person compare(Person p) {
