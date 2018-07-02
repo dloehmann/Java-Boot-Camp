@@ -1,4 +1,4 @@
-package lesson7_8BitShifting;
+package practice3SumCalc;
 
 public class Main {
 
