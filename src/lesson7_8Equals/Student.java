@@ -1,4 +1,4 @@
-package lesson7_8Interfaces;
+package lesson7_8Equals;
 
 /**
  * @Author Dennis Löhmann (Holisticon AG) 21.06.18
@@ -27,6 +27,11 @@ public class Student extends Person {
     public String toString() {
         return "Hello, my name is " + getName() + " and I am " + getAge() + " years old and I am a " + this.getJob() +
                 ". My teacher is " + teacher.getName() + ".";
+    }
+
+    public boolean equals(Student o) {
+        return this.getName().equals(o.getName()) && this.getAge() == o.getAge() && this.getTeacher().equals(o
+                .getTeacher());
     }
 
 }
