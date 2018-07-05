@@ -7,7 +7,9 @@ public class Main {
         System.out.println(bigFive[0]);
         System.out.println(bigFive[1]);
         System.out.println(bigFive[2]);
+        bigFive[3] = "Cat";
         System.out.println(bigFive[3]);
         System.out.println(bigFive[4]);
+        
     }
 }
