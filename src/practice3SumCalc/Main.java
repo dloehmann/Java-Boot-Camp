@@ -10,6 +10,7 @@ public class Main {
     private static int sum(int[] numbers) {
     	// initialize the result
     	int result = 0;
+    	// Serious comment
     	for (int i : numbers) {
         	System.out.println(i);
         	// add each number to the result/ sum up
