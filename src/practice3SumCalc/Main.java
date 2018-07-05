@@ -14,6 +14,7 @@ public class Main {
         	System.out.println(i);
         	// add each number to the result/ sum up
         	result += i;
+        	// my playground
     	}
     	return result;
     }
