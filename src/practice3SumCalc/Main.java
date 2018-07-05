@@ -11,6 +11,7 @@ public class Main {
     	// initialize the result
     	int result = 0;
     	// Serious comment
+    	// change
     	for (int i : numbers) {
         	System.out.println(i);
         	// add each number to the result/ sum up
