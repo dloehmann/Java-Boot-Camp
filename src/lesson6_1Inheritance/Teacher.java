@@ -9,4 +9,8 @@ public class Teacher extends Person {
     public Teacher(String name, int age) {
         super(name, age, Person.TEACHER);
     }
+    
+    public void teach() {
+    	System.out.println("Welcome to my class");
+    }
 }

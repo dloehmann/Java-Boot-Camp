@@ -9,4 +9,8 @@ public class Developer extends Person {
     public Developer(String name, int age) {
         super(name, age, Person.DEVELOPER);
     }
+    
+    public void develop() {
+    	
+    }
 }

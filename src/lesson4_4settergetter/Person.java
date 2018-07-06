@@ -11,11 +11,13 @@ public class Person {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    
+     public void setName(String name) {
+		this.name = name;
+	}
 
-    public int getAge() {
+
+	public int getAge() {
         return age;
     }
 
@@ -33,4 +35,11 @@ public class Person {
         }
         return this;
     }
+    
+    // return a string representation
+    public String toString() {
+    	return name;
+    }
+    
+    
 }
