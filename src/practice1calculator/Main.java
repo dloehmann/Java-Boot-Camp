@@ -13,6 +13,7 @@ public class Main {
         System.out.println("Type in the second number");
         int n2 = Integer.parseInt(scanner.nextLine());
         System.out.println("User input: " + n2);
+        System.out.println("Result: " + (n1 + n2));
 
 
     }

@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -71,7 +72,8 @@ public class JavaFxMain6 extends Application {
 
             @Override
             public void handle(ActionEvent e) {
-                // Here is something missing
+                persons[counter] = new Person(userTextField.getText(), Integer.parseInt(ageTextField.getText()));
+                actiontargets[counter].setFill(Color.FIREBRICK);
                 actiontargets[counter].setText("Hello, my name is " + persons[counter].getName() + " and I am " +
                         persons[counter].getAge
                         () + " years old.");

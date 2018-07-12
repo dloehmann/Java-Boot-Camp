@@ -3,7 +3,7 @@ package practice6compare;
 /**
  * @Author Dennis Löhmann (Holisticon AG) 27.06.18
  **/
-public class Ball {
+public class Ball implements Comparable<Ball> {
     private int weight;
     private int selectionType = 0;
 
@@ -31,5 +31,14 @@ public class Ball {
         this.selectionType = (selectionType + 1) % 3;
     }
 
-
+    @Override
+    public int compareTo(Ball o) {
+        if (this.getWeight() < o.getWeight() ) {
+            return -1;
+        }
+        if (this.getWeight() > o.getWeight() ) {
+            return 1;
+        }
+        return 0;
+    }
 }

@@ -5,18 +5,19 @@ public class Main {
     public static void main(String[] args) {
         Person t = new Teacher("John", 42);
         Person d = new Developer("Kate", 25);
-        Person a = new Administrator("Jake", 33);
+        Person a = new Administrator("Jake", 30);
 
         Person[] p = new Person[]{a, d, t};
-        System.out.println("Together, they have " + sumUpAge(a, d, t) + " years of experience.");
+        System.out.println(Math.min(3, 5));
+        System.out.println("Together, they have an average age of " + averageAge(a, d, t) + " years.");
     }
 
-    public static int sumUpAge(Person... persons) {
+    public static int averageAge(Person... persons) {
         int i = 0;
         for (Person p : persons) {
             i += p.getAge();
         }
-        return i;
+        return i / persons.length;
     }
 }
 

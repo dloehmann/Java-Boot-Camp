@@ -23,7 +23,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class BallGame extends Application {
+public class Dice extends Application {
 
 
     private static final Color SELECTED_COLOR = Color.RED;
@@ -97,8 +97,6 @@ public class BallGame extends Application {
             @Override
             public void handle(ActionEvent e) {
                 actiontarget.setFill(Color.BLACK);
-                actiontarget.setText(BallGameService.instance().getWeightText());
-//                resetSelections();
                 next();
             }
         });
@@ -111,9 +109,8 @@ public class BallGame extends Application {
             }
         });
 
-        Ball[] balls = BallGameService.instance().generateBalls();
-        circles = new Circle[balls.length];
-        for (int i = 0; i < balls.length; i++) {
+        circles = new Circle[9];
+        for (int i = 0; i < 9; i++) {
             circles[i] = new Circle(25d, 25d, 25d);
             circles[i].setFill(DESELECTED_COLOR);
             grid.add(circles[i], i % 3, (i) / 3 + 2);
@@ -122,31 +119,6 @@ public class BallGame extends Application {
 
                 @Override
                 public void handle(MouseEvent event) {
-                    if (BallGameService.instance().getRounds() < 3) {
-                        balls[finalI].toggleSelectionType();
-                        int selectionType = balls[finalI].getSelectionType();
-                        switch (selectionType) {
-                            case 0:
-                                circles[finalI].setFill(DESELECTED_COLOR);
-                                System.out.println("Ball " + finalI + " unselected.");
-                                break;
-                            case 1:
-                                circles[finalI].setFill(SELECTED_COLOR);
-                                System.out.println("Ball " + finalI + " selected.");
-                                break;
-                            case 2:
-                                circles[finalI].setFill(ALT_SELECTED_COLOR);
-                                System.out.println("Ball " + finalI + " alt selected.");
-                                break;
-                        }
-                        nextBtn.setDisable(!BallGameService.instance().existBothSelections());
-
-                    } else if (BallGameService.instance().getRounds() == 3) {
-                        actiontarget.setFill(Color.FIREBRICK);
-                        actiontarget.setText(BallGameService.instance().getResultText(finalI));
-                        System.out.println(BallGameService.instance().getResultText(finalI));
-                        next();
-                    }
                 }
             });
         }
@@ -157,8 +129,6 @@ public class BallGame extends Application {
             @Override
             public void handle(ActionEvent e) {
                 actiontarget.setText("");
-//                BallGameService.instance().generateBalls();
-                BallGameService.instance().resetRounds();
                 next();
             }
         });
@@ -169,51 +139,10 @@ public class BallGame extends Application {
     }
 
     private void next() {
-        BallGameService.instance().increaseRounds();
-        switch (BallGameService.instance().getRounds()) {
-            case 1:
-                nextHbBtn.setVisible(true);
-                nextBtn.setDisable(true);
-                clearHbBtn.setVisible(true);
-                resetHbBtn.setVisible(false);
-                lastInstructionHbBtn.setVisible(false);
-                actiontarget.setText("");
-                break;
-            case 2:
-                nextHbBtn.setVisible(true);
-                nextBtn.setDisable(true);
-                resetHbBtn.setVisible(false);
-                clearHbBtn.setVisible(true);
-                lastInstructionHbBtn.setVisible(false);
-                break;
-            case 3:
-                nextHbBtn.setVisible(false);
-                resetHbBtn.setVisible(false);
-                clearHbBtn.setVisible(false);
-                lastInstructionHbBtn.setVisible(true);
-                break;
-            case 4:
-                resetBalls();
-                nextHbBtn.setVisible(false);
-                resetHbBtn.setVisible(true);
-                clearHbBtn.setVisible(false);
-                lastInstructionHbBtn.setVisible(false);
-                break;
-        }
-        instruction.setText(BallGameService.instance().returnInstruction());
-//        primaryStage.close();
         primaryStage.show();
     }
 
-    private void resetBalls() {
-        BallGameService.instance().resetBalls();
-        for (Circle c : circles) {
-            c.setFill(DESELECTED_COLOR);
-        }
-    }
-
     private void resetSelections() {
-        BallGameService.instance().resetSelections();
         for (Circle c : circles) {
             c.setFill(DESELECTED_COLOR);
         }
