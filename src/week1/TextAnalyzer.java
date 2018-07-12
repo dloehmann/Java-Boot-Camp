@@ -33,37 +33,53 @@ public class TextAnalyzer {
                 "Dennis";
 
 
+        // characters are represented internally as number codes
+        // these examples show how the are mapped to ints. E.g., 'a' has number 97 in the character table, '0' is 48,
+        // and space is
+        // 32.
         System.out.println((int)'a');
         System.out.println((char)(int)'a');
         System.out.println((int)'0');
         System.out.println((int)'9');
         System.out.println((int)' ');
         System.out.println((int)'%');
+
+        // array to hold the count results
+        // 0..25: the characters a..z,
+        // 26: numeric values,
+        // 27: spaces,
+        // 28: linebreaks (\n),
+        // 29: others
         int[] result = new int[30];
+        // init array
         for (int i = 0; i < result.length; i++) {
             result[i] = 0;
         }
+        // iterate over the characters of the text
         for (char c : text.toLowerCase().toCharArray()) {
             int i = ((int) c);
             if (i >= 97 && i < 97+26) {
-                result[i-97]++;
+                // TODO count letters using result[0]..result[25]
             } else
             if (i >= 48 && i < 58) {
-                result[26]++;
-            } else            if (c == ' ') {
-                result[27]++;
+                // TODO count numbers using result[26]
+            } else if (c == ' ') {
+                // TODO count spaces using result[27]
             } else
             if (c == '\n') {
-                result[28]++;
+                // TODO count linebreaks using result[28]
             } else {
-                result[29]++;
+                // TODO count others using result[29]
             }
         }
+
+        // print the result
         System.out.println("Result:");
+        // index of the most common letter
         int most = 0;
         for (int i = 0; i < 26; i++) {
             if (result[i] > result[most]) {
-                most = i;
+                // TODO if result[i] > result[most], update "most" with "i"
             }
             System.out.println((char)(i+97) + " : "+  result[i]);
         }

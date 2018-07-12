@@ -5,32 +5,35 @@ package week1;
  **/
 public class Cuboid {
 
-    int x,y,z;
+    // TODO define variables
 
     public Cuboid(int x, int y, int z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        // TODO set variables
     }
 
     public int getX() {
-        return x;
+        // TODO getters should return their variable's value
+        return 0;
     }
 
     public int getY() {
-        return y;
+        // TODO getters should return their variable's value
+        return 0;
     }
 
     public int getZ() {
-        return z;
+        // TODO getters should return their variable's value
+        return 0;
     }
 
     public int getVolume() {
-        return x*y*z;
-
+        // TODO calculate volume and return it
+        return 0;
     }
+
     public static void main(String[] args) {
         Cuboid c = new Cuboid(2,3,4);
+        // TODO should print out "Cuboid (2x3x4) has volume 24."
         System.out.println("Cuboid (" + c.getX() + "x" + c.getY() + "x" + c.getZ() + ") has volume " + c
                 .getVolume()
                 + ".");
